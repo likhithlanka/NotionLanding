@@ -31,13 +31,14 @@ body {
   gap: 2rem;
 }
 .skills-display {
-  flex: 1;
+  flex: 0 0 40%;
   padding: 1rem;
   border-left: 2px solid #ccc;
-  max-width: 50%;
+  max-width: 40%;
 }
 .timeline {
-  flex: 1;
+  flex: 0 0 60%;
+  max-width: 60%;
 }
 h2 {
   font-size: 1.5rem;
@@ -113,7 +114,12 @@ h2 {
       <p>This journey led me to IIM Calcutta, where I juggled being a student and a product consultant. Imagine reading a cookbook while running a restaurant!</p>
     </div>
   </div>
-  <div class="event" onmouseover="showSkills('sidequests')">
+</div>
+
+<div class="skills-display">
+  <h2>My Skills Evolution 🚀</h2>
+  <pre id="skillDetail">Hover over a journey to see skills...</pre>
+  <div class="event" style="margin-top:2rem;" onmouseover="showSkills('sidequests')">
     <div class="icon">🚀</div>
     <div class="content">
       <h3>Amazon & Beyond</h3>
@@ -128,72 +134,67 @@ h2 {
   </div>
 </div>
 
-<div class="skills-display">
-  <h2>My Skills Evolution 🚀</h2>
-  <pre id="skillDetail">Hover over a journey to see skills...</pre>
-</div>
-
 <script>
 const skillMap = {
   childhood: `🔹 Technical Excellence
-2019 [▫️▫️▫️⚪️⚪️] Backend Development, Basic APIs
+Backend Development, Basic APIs
 
 🔹 Product Management
-2019 [▫️⚪️⚪️⚪️⚪️] Basic Product Understanding
+Basic Product Understanding
 
 🔹 Data & Analytics
-2019 [▫️▫️⚪️⚪️⚪️] Basic SQL, Data Analysis
+Basic SQL, Data Analysis
 
 🔹 Leadership Impact
-2019 [▫️⚪️⚪️⚪️⚪️] Individual Contributor`,
+Individual Contributor`,
 
   codechef: `🔹 Technical Excellence
-2019 [▫️▫️▫️⚪️⚪️] Backend Development, Basic APIs
+Backend Development, Basic APIs
 
 🔹 Product Management
-2019 [▫️⚪️⚪️⚪️⚪️] Basic Product Understanding
+Basic Product Understanding
 
 🔹 Data & Analytics
-2019 [▫️▫️⚪️⚪️⚪️] Basic SQL, Data Analysis
+Basic SQL, Data Analysis
 
 🔹 Leadership Impact
-2019 [▫️⚪️⚪️⚪️⚪️] Individual Contributor`,
+Individual Contributor`,
 
   usercentric: `🔹 Technical Excellence
-2021 [▫️▫️▫️▫️⚪️] System Architecture, Team Leadership
+Backend Development, Basic APIs, System Architecture, Team Leadership
 
 🔹 Product Management
-2021 [▫️▫️▫️⚪️⚪️] Feature Prioritization, User Research
+Basic Product Understanding, Feature Prioritization, User Research
 
 🔹 Data & Analytics
-2021 [▫️▫️▫️▫️⚪️] Advanced Analytics, Dashboarding
+Basic SQL, Data Analysis, Advanced Analytics, Dashboarding
 
 🔹 Leadership Impact
-2021 [▫️▫️▫️⚪️⚪️] Team Lead, Cross-functional Collaboration`,
+Individual Contributor, Team Lead, Cross-functional Collaboration`,
 
   iim: `🔹 Technical Excellence
-2021 [▫️▫️▫️▫️⚪️] System Architecture, Team Leadership
+Backend Development, Basic APIs, System Architecture, Team Leadership
 
 🔹 Product Management
-2021 [▫️▫️▫️⚪️⚪️] Feature Prioritization, User Research
+Basic Product Understanding, Feature Prioritization, User Research
 
 🔹 Data & Analytics
-2021 [▫️▫️▫️▫️⚪️] Advanced Analytics, Dashboarding
+Basic SQL, Data Analysis, Advanced Analytics, Dashboarding
 
 🔹 Leadership Impact
-2021 [▫️▫️▫️⚪️⚪️] Team Lead, Cross-functional Collaboration`,
+Individual Contributor, Team Lead, Cross-functional Collaboration`,
 
   sidequests: `🔹 Technical Excellence
-2024 [▫️▫️▫️▫️▫️] AI Integration, Technical Strategy
+Backend Development, Basic APIs, System Architecture, Team Leadership, AI Integration, Technical Strategy
 
 🔹 Product Management
-2024 [▫️▫️▫️▫️▫️] Strategy, Roadmapping, Executive Leadership
+Basic Product Understanding, Feature Prioritization, User Research, Strategy, Roadmapping, Executive Leadership
 
 🔹 Data & Analytics
-2024 [▫️▫️▫️▫️▫️] BI Transformation, ML Integration
+Basic SQL, Data Analysis, Advanced Analytics, Dashboarding, BI Transformation, ML Integration
 
 🔹 Leadership Impact
-2024 [▫️▫️▫️▫️▫️] Strategic Leadership, C-Suite Engagement`
+Individual Contributor, Team Lead, Cross-functional Collaboration, Strategic Leadership, C-Suite Engagement`
 };
 
 function showSkills(key) {
