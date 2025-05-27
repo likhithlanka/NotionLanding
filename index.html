@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Journey and Skills Widget</title>
+<style>
+:root {
+  --bg-color: #FFFFFF;
+  --text-color: #37352F;
+  --accent-color: #337EA9;
+  --track-tech: #4DAB9A;
+  --track-product: #E255A1;
+  --track-data: #529CCA;
+  --track-lead: #D44C47;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #2F3438;
+    --text-color: #E0E0E0;
+    --accent-color: #529CCA;
+  }
+}
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.skills-display {
+  flex: 1;
+  padding: 1rem;
+  border-left: 2px solid #ccc;
+  max-width: 50%;
+}
+.timeline {
+  flex: 1;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.timeline .event {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.timeline .event:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+.timeline .icon {
+  width: 2rem;
+  font-size: 1.5rem;
+}
+.timeline .content {
+  margin-left: 0.5rem;
+}
+.timeline .content h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+.timeline .content p, .timeline .content ul {
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+#skillDetail {
+  font-family: monospace;
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  background: rgba(0,0,0,0.02);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+</style>
+</head>
+<body>
+
+<div class="timeline">
+  <h2>My Journey 🚀</h2>
+  <div class="event" onmouseover="showSkills('childhood')">
+    <div class="icon">👶</div>
+    <div class="content">
+      <h3>Curious Beginnings <span style="font-size:0.85rem; opacity:0.6;">(hover to see skills)</span></h3>
+      <p>I've always been that kid who couldn't stop asking "why?" My curiosity laid the foundation for a life of discovery and learning.</p>
+    </div>
+  </div>
+  <div class="event" onmouseover="showSkills('codechef')">
+    <div class="icon">💻</div>
+    <div class="content">
+      <h3>CodeChef 5★ Coder</h3>
+      <p>Started programming because I loved solving puzzles. Reached 5★ on CodeChef and led the campus coding community at IIIT.</p>
+    </div>
+  </div>
+  <div class="event" onmouseover="showSkills('usercentric')">
+    <div class="icon">💡</div>
+    <div class="content">
+      <h3>That *Click* Moment</h3>
+      <p>At my first job, I realized I wasn't just excited about code—I loved solving real user problems. It was like shifting from using kitchen tools to cooking something delightful.</p>
+    </div>
+  </div>
+  <div class="event" onmouseover="showSkills('iim')">
+    <div class="icon">🎓</div>
+    <div class="content">
+      <h3>IIM Calcutta</h3>
+      <p>This journey led me to IIM Calcutta, where I juggled being a student and a product consultant. Imagine reading a cookbook while running a restaurant!</p>
+    </div>
+  </div>
+  <div class="event" onmouseover="showSkills('sidequests')">
+    <div class="icon">🚀</div>
+    <div class="content">
+      <h3>Amazon & Beyond</h3>
+      <p>Now I’m at Amazon, turning complex problems into simple solutions. On the side, you’ll find me:</p>
+      <ul>
+        <li>Tinkering with AI projects (prompt engineering feels second nature)</li>
+        <li>Chasing sunsets through my lens</li>
+        <li>Reading endlessly about product and tech</li>
+        <li>Running on coffee and curiosity</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="skills-display">
+  <h2>My Skills Evolution 🚀</h2>
+  <pre id="skillDetail">Hover over a journey to see skills...</pre>
+</div>
+
+<script>
+const skillMap = {
+  childhood: `🔹 Technical Excellence
+2019 [▫️▫️▫️⚪️⚪️] Backend Development, Basic APIs
+
+🔹 Product Management
+2019 [▫️⚪️⚪️⚪️⚪️] Basic Product Understanding
+
+🔹 Data & Analytics
+2019 [▫️▫️⚪️⚪️⚪️] Basic SQL, Data Analysis
+
+🔹 Leadership Impact
+2019 [▫️⚪️⚪️⚪️⚪️] Individual Contributor`,
+
+  codechef: `🔹 Technical Excellence
+2019 [▫️▫️▫️⚪️⚪️] Backend Development, Basic APIs
+
+🔹 Product Management
+2019 [▫️⚪️⚪️⚪️⚪️] Basic Product Understanding
+
+🔹 Data & Analytics
+2019 [▫️▫️⚪️⚪️⚪️] Basic SQL, Data Analysis
+
+🔹 Leadership Impact
+2019 [▫️⚪️⚪️⚪️⚪️] Individual Contributor`,
+
+  usercentric: `🔹 Technical Excellence
+2021 [▫️▫️▫️▫️⚪️] System Architecture, Team Leadership
+
+🔹 Product Management
+2021 [▫️▫️▫️⚪️⚪️] Feature Prioritization, User Research
+
+🔹 Data & Analytics
+2021 [▫️▫️▫️▫️⚪️] Advanced Analytics, Dashboarding
+
+🔹 Leadership Impact
+2021 [▫️▫️▫️⚪️⚪️] Team Lead, Cross-functional Collaboration`,
+
+  iim: `🔹 Technical Excellence
+2021 [▫️▫️▫️▫️⚪️] System Architecture, Team Leadership
+
+🔹 Product Management
+2021 [▫️▫️▫️⚪️⚪️] Feature Prioritization, User Research
+
+🔹 Data & Analytics
+2021 [▫️▫️▫️▫️⚪️] Advanced Analytics, Dashboarding
+
+🔹 Leadership Impact
+2021 [▫️▫️▫️⚪️⚪️] Team Lead, Cross-functional Collaboration`,
+
+  sidequests: `🔹 Technical Excellence
+2024 [▫️▫️▫️▫️▫️] AI Integration, Technical Strategy
+
+🔹 Product Management
+2024 [▫️▫️▫️▫️▫️] Strategy, Roadmapping, Executive Leadership
+
+🔹 Data & Analytics
+2024 [▫️▫️▫️▫️▫️] BI Transformation, ML Integration
+
+🔹 Leadership Impact
+2024 [▫️▫️▫️▫️▫️] Strategic Leadership, C-Suite Engagement`
+};
+
+function showSkills(key) {
+  document.getElementById('skillDetail').textContent = skillMap[key];
+}
+</script>
+
+</body>
+</html>
